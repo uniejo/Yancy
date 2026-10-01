@@ -10,14 +10,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: shogo82148/actions-setup-perl@v1
-      - uses: actions/setup-node@v1
-      - uses: microsoft/playwright-github-action@v1
+      - uses: actions/setup-node@v4
       - name: node -v
         run: node -v
       - name: npm install
         run: npm i
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
       - name: perl -V
         run: perl -V
       - name: Install dependencies
